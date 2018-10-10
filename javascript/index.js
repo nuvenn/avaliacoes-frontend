@@ -37,8 +37,14 @@ function addMarker(marker) {
         content: '<h2>'+ marker.title +'</h2>'
     })
     marker.addListener('click', function(){
+        customIcon.fillColor = '#FFFFFF';
+        marker.setIcon(customIcon);
         info.open(map, marker);
     })
+    google.maps.event.addListener(info, 'closeclick',function(){
+        customIcon.fillColor = '#F7B217';
+        marker.setIcon(customIcon);
+    });
 }
 
 
